@@ -16,5 +16,14 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("name")) {
     return ( "Eliezer" );
   }
+
+  if (query.toLowerCase().includes("which of the following numbers is the largest")) {
+    // Extrae los números de la pregunta
+    const numbers = query.match(/\d+/g)?.map(Number);
+    if (numbers) {
+      return Math.max(...numbers).toString();
+    }
+  }
+
   return "";
 }
