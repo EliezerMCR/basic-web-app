@@ -55,10 +55,21 @@ describe('QueryProcessor', () => {
 		['What is 91 plus 32?', '123'],
 		['What is 99 plus 69?', '168'],
 		['What is 46 plus 10?', '56'],
-		['What is 46 plus 10?', '56'],
 		['What is 79 plus 2?', '81'],
 	])("should return the sum for query '%s'", (query, expected) => {
 		const response: string = QueryProcessor(query);
 		expect(response).toBe(expected);
 	});
+
+
+    test.each([
+        ["What is 48 multiplied by 20?", "960"],
+        ["What is 5 multiplied by 5?", "25"],
+        ["What is 0 multiplied by 100?", "0"],
+        ["What is -10 multiplied by 3?", "-30"],
+        ["What is 999 multiplied by 2?", "1998"],
+      ])("should return the product for query '%s'", (query, expected) => {
+        const response: string = QueryProcessor(query);
+        expect(response).toBe(expected);
+      });
 });
