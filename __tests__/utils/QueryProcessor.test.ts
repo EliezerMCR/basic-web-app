@@ -97,8 +97,35 @@ describe('QueryProcessor', () => {
 			'Which of the following numbers is both a square and a cube: 125, 2541, 4417, 1892, 4, 2694, 4096?',
 			'1',
 		],
+		[
+			'Which of the following numbers is both a square and a cube: 3396, 246, 1600, 64, 87, 3566, 3375?',
+			'1',
+		],
 	])(
 		"should return the number that is both a square and a cube for query '%s'",
+		(query, expected) => {
+			const response: string = QueryProcessor(query);
+			expect(response).toBe(expected);
+		}
+	);
+
+	test.each([
+		['Which of the following numbers are primes: 3, 48, 69, 85, 26?', '3'],
+		[
+			'Which of the following numbers are primes: 11, 22, 33, 44, 55?',
+			'11',
+		],
+		[
+			'Which of the following numbers are primes: 17, 19, 23, 29, 31?',
+			'17, 19, 23, 29, 31',
+		],
+		['Which of the following numbers are primes: 4, 6, 8, 10, 12?', 'None'],
+		[
+			'Which of the following numbers are primes: 2, 3, 5, 7, 11?',
+			'2, 3, 5, 7, 11',
+		],
+	])(
+		"should return the number(s) that are primes for query '%s'",
 		(query, expected) => {
 			const response: string = QueryProcessor(query);
 			expect(response).toBe(expected);

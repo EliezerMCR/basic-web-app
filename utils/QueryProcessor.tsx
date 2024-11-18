@@ -42,12 +42,12 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("both a square and a cube")) {
     const numbers = query.match(/\d+/g)?.map(Number);
     if (numbers) {
-      // Sexta potencia perfecta (ambos cuadrado y cubo perfectos)
-      const result = numbers.find(num => {
+      // Encuentra todas las sextas potencias perfectas
+      const results = numbers.filter(num => {
         const root = Math.round(Math.pow(num, 1 / 6));
         return root ** 6 === num;
       });
-      return result !== undefined ? result.toString() : "None";
+      return results.length > 0 ? results.join(", ") : "None";
     }
   }
   return "";
