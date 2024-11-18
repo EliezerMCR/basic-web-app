@@ -116,8 +116,8 @@ describe('QueryProcessor', () => {
 			'11',
 		],
 		[
-			'Which of the following numbers are primes: 17, 19, 23, 29, 31?',
-			'17, 19, 23, 29, 31',
+			'Which of the following numbers are primes: 34, 43, 47, 74, 13?',
+			'43, 47, 13',
 		],
 		['Which of the following numbers are primes: 4, 6, 8, 10, 12?', 'None'],
 		[
