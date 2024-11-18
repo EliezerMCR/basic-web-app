@@ -26,4 +26,12 @@ describe("QueryProcessor", () => {
 		"18-10605"
     	));
     });
+
+    test('should return my USB ID', () => {
+        const query = "What is your name?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+		"Elizer"
+    	));
+    });
 });
