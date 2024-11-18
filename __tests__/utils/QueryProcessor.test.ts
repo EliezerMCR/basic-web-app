@@ -38,6 +38,11 @@ describe('QueryProcessor', () => {
 		['Which of the following numbers is the largest: 8, 61, 20?', '61'],
 		['Which of the following numbers is the largest: 42, 79, 41?', '79'],
 		['Which of the following numbers is the largest: 2, 7, 78?', '78'],
+		['Which of the following numbers is the largest: 65, 75, 25?', '75'],
+		['Which of the following numbers is the largest: 35, 97, 54?', '97'],
+		['Which of the following numbers is the largest: 66, 51, 70?', '70'],
+		['Which of the following numbers is the largest: 55, 44, 27?', '55'],
+		['Which of the following numbers is the largest: 23, 66, 10?', '66'],
 	])("should return the largest number for query '%s'", (query, expected) => {
 		const response: string = QueryProcessor(query);
 		expect(response).toBe(expected);
@@ -49,6 +54,7 @@ describe('QueryProcessor', () => {
 		['What is 17 plus 42?', '59'],
 		['What is 91 plus 32?', '123'],
 		['What is 99 plus 69?', '168'],
+		['What is 46 plus 10?', '56'],
 		['What is 46 plus 10?', '56'],
 		['What is 79 plus 2?', '81'],
 	])("should return the sum for query '%s'", (query, expected) => {
