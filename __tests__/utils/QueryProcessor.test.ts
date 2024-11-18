@@ -131,4 +131,18 @@ describe('QueryProcessor', () => {
 			expect(response).toBe(expected);
 		}
 	);
+
+	test.each([
+		['What is 45 minus 76?', '-31'],
+		['What is 100 minus 50?', '50'],
+		['What is -10 minus 5?', '-15'],
+		['What is 0 minus 0?', '0'],
+		['What is 5 minus 15?', '-10'],
+	])(
+		"should return the result for subtraction query '%s'",
+		(query, expected) => {
+			const response: string = QueryProcessor(query);
+			expect(response).toBe(expected);
+		}
+	);
 });

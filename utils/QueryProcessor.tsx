@@ -65,5 +65,12 @@ export default function QueryProcessor(query: string): string {
       return primes.length > 0 ? primes.join(", ") : "None";
     }
   }
+
+  if (query.toLowerCase().includes("minus")) {
+    const numbers = query.match(/-?\d+/g)?.map(Number);
+    if (numbers && numbers.length === 2) {
+      return (numbers[0] - numbers[1]).toString();
+    }
+  }
   return "";
 }
