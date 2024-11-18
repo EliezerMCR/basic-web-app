@@ -48,7 +48,9 @@ describe('QueryProcessor', () => {
 		['What is 91 plus 5?', '96'],
 		['What is 17 plus 42?', '59'],
 		['What is 91 plus 32?', '123'],
-		['What is 85 plus 93?', '178'],
+		['What is 99 plus 69?', '168'],
+		['What is 46 plus 10?', '56'],
+		['What is 79 plus 2?', '81'],
 	])("should return the sum for query '%s'", (query, expected) => {
 		const response: string = QueryProcessor(query);
 		expect(response).toBe(expected);
