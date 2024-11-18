@@ -38,5 +38,17 @@ export default function QueryProcessor(query: string): string {
       return (numbers[0] * numbers[1]).toString();
     }
   }
+
+  if (query.toLowerCase().includes("both a square and a cube")) {
+    const numbers = query.match(/\d+/g)?.map(Number);
+    if (numbers) {
+      // Sexta potencia perfecta (ambos cuadrado y cubo perfectos)
+      const result = numbers.find(num => {
+        const root = Math.round(Math.pow(num, 1 / 6));
+        return root ** 6 === num;
+      });
+      return result !== undefined ? result.toString() : "None";
+    }
+  }
   return "";
 }

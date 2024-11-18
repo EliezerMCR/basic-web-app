@@ -61,15 +61,47 @@ describe('QueryProcessor', () => {
 		expect(response).toBe(expected);
 	});
 
+	test.each([
+		['What is 48 multiplied by 20?', '960'],
+		['What is 5 multiplied by 5?', '25'],
+		['What is 0 multiplied by 100?', '0'],
+		['What is -10 multiplied by 3?', '-30'],
+		['What is 999 multiplied by 2?', '1998'],
+	])("should return the product for query '%s'", (query, expected) => {
+		const response: string = QueryProcessor(query);
+		expect(response).toBe(expected);
+	});
 
-    test.each([
-        ["What is 48 multiplied by 20?", "960"],
-        ["What is 5 multiplied by 5?", "25"],
-        ["What is 0 multiplied by 100?", "0"],
-        ["What is -10 multiplied by 3?", "-30"],
-        ["What is 999 multiplied by 2?", "1998"],
-      ])("should return the product for query '%s'", (query, expected) => {
-        const response: string = QueryProcessor(query);
-        expect(response).toBe(expected);
-      });
+	test.each([
+		[
+			'Which of the following numbers is both a square and a cube: 531, 625, 3748, 216, 4612, 1, 535?',
+			'1',
+		],
+		[
+			'Which of the following numbers is both a square and a cube: 1, 1024, 926, 729, 3700, 1311, 1702?',
+			'1',
+		],
+		[
+			'Which of the following numbers is both a square and a cube: 3199, 64, 784, 1339, 4913, 1861, 2331?',
+			'64',
+		],
+		[
+			'Which of the following numbers is both a square and a cube: 1906, 64, 784, 973, 4096, 4675, 3560?',
+			'64',
+		],
+		[
+			'Which of the following numbers is both a square and a cube: 125, 2541, 4417, 1892, 4, 2694, 4096?',
+			'4096',
+		],
+		[
+			'Which of the following numbers is both a square and a cube: 125, 2541, 4417, 1892, 4, 2694, 4096?',
+			'1',
+		],
+	])(
+		"should return the number that is both a square and a cube for query '%s'",
+		(query, expected) => {
+			const response: string = QueryProcessor(query);
+			expect(response).toBe(expected);
+		}
+	);
 });
